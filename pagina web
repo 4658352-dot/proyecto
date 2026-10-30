@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo - Albert Camus</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: red;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .seccion-arriba {
+            font-size: 1.5rem;
+            color: #5eff00;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #51ff00;
+            margin-top: 0;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p.autor {
+            font-size: 1.4rem;
+            color: #67ff02;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .seccion-abajo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #04ff10;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 25px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Contenedor para la marquesina vertical */
+        .marquesina-contenedor {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Texto animado de arriba hacia abajo */
+        .marquesina-texto {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #9dff00;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            animation: bajar 3s linear infinite;
+        }
+
+        @keyframes bajar {
+            0% {
+                top: -40px;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Contenedor principal en formato Flexbox */
+        .contenedor {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            max-width: 850px;
+            width: 100%;
+            margin: 30px auto;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 25px;
+            border-radius: 16px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Ajustes para la imagen */
+        .contenedor img {
+            width: 260px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+
+        /* Ajustes para el texto */
+        .contenido-texto {
+            flex: 1;
+            color: #1eff00;
+        }
+
+        .contenido-texto h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #04ff10;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        /* Estilos para la lista con viñetas */
+        .contenido-texto ul {
+            list-style-type: disc;
+            margin: 10px 0;
+            padding-left: 20px;
+            font-size: 1.1rem;
+            color: #4bff04;
+            line-height: 1.6;
+        }
+
+        .contenido-texto li {
+            margin-bottom: 10px;
+        }
+
+        .poema {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-style: italic;
+            margin-top: 20px;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-left: 4px solid #04ff10;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Sección Obras */
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .container h1 {
+            text-align: center;
+            color: #114205;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+            text-shadow: none;
+        }
+
+        .container h2 {
+            font-size: 1.3rem;
+            color: #114205;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .camus-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+            color: #222222;
+        }
+
+        .camus-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .camus-list li::before {
+            content: "◆";
+            position: absolute;
+            left: 5px;
+            color: #24311c;
+            font-size: 0.9rem;
+        }
+
+        .year {
+            font-weight: bold;
+            color: #343d2e;
+        }
+
+        /* Galería de imágenes en línea */
+        .galeria-fotos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .galeria-fotos img {
+            width: 130px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .galeria-fotos img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+        }
+
+        /* --- Estilos para el contenedor del video (AJUSTADO) --- */
+        .video-container {
+            width: 100%;
+            /* Cambiado de 400px a 600px para hacerlo "un poquito mas grande" */
+            max-width: 600px; 
+            margin: 30px auto; /* Centrado horizontalmente y con margen vertical */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Sombra un poco más fuerte */
+            border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block; /* Elimina espacio en blanco inferior */
+        }
+
+        /* Adaptabilidad para teléfonos */
+        @media (max-width: 600px) {
+            .contenedor {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contenedor img {
+                width: 100%;
+                max-width: 260px;
+            }
+            
+            /* En móviles muy pequeños, que ocupe casi todo el ancho */
+            .video-container {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HOLA MUNDO</h1>
+    <p class="autor">Autor: Daniela Alejandra Orellana García</p>
+    
+    <div class="seccion-abajo">1-C</div>
+
+    <div class="marquesina-contenedor">
+        <div class="marquesina-texto">2026-Camus</div>
+    </div>
+
+    <div class="contenedor">
+        <img src="https://www.biografiasyvidas.com/biografia/c/fotos/camus.jpg" alt="Albert Camus">
+        
+        <div class="contenido-texto">
+            <h2>Datos Clave</h2>
+            
+            <ul>
+                <li><strong>Nacimiento:</strong> 7 de noviembre de 1913, en Mondovi, Argelia francesa.</li>
+                <li><strong>Fallecimiento:</strong> 4 de enero de 1960, en Villeblevin, Francia (accidente automovilístico).</li>
+                <li><strong>Premio Nobel:</strong> Ganó el Premio Nobel de Literatura en 1957 a los 44 años (uno de los más jóvenes de la historia).</li>
+            </ul>
+
+            <div class="poema">
+                <strong>Poema: El peso de la roca</strong><br>
+                Bajo el cielo vacío de respuestas,<br>
+                el hombre empuja el mármol de sus días.<br>
+                La cima es un espejo de agonías,<br>
+                la cuesta, una promesa de ballestas.
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Obras de Albert Camus</h1>
+
+        <h2>Novelas y relatos</h2>
+        <ul class="camus-list">
+            <li><span class="year">(1942)</span> El extranjero</li>
+            <li><span class="year">(1947)</span> La peste</li>
+            <li><span class="year">(1956)</span> La caída</li>
+            <li><span class="year">(1957)</span> El exilio y el reino</li>
+            <li><span class="year">(1971)</span> La muerte feliz <em>(Publicación póstuma)</em></li>
+            <li><span class="year">(1994)</span> El primer hombre <em>(Inconclusa, póstuma)</em></li>
+        </ul>
+    </div>
+
+    <div class="galeria-fotos">
+        <img src="https://queleerlibros.com/wp-content/uploads/2018/02/el-extranjero-201x300.jpg" alt="El extranjero">
+        <img src="https://queleerlibros.com/wp-content/uploads/2018/02/la-peste-205x300.jpg" alt="La peste">
+        <img src="https://queleerlibros.com/wp-content/uploads/2018/02/la-caida-196x300.jpg" alt="La caída">
+        <img src="https://queleerlibros.com/wp-content/uploads/2018/02/el-hombre-rebelde-189x300.jpg" alt="El hombre rebelde">
+        <img src="https://queleerlibros.com/wp-content/uploads/2018/02/el-mito-de-sisifo-189x300.jpg" alt="El mito de Sísifo">
+        <img src="https://queleerlibros.com/wp-content/uploads/2018/02/el-primer-hombre-200x300.jpg" alt="El primer hombre">
+    </div>
+
+    <!-- Sección del video (Ahora un poco más grande: 600px max) -->
+    <div class="video-container">
+        <video controls>
+            <!-- Asegúrate de que esta ruta sea correcta en tu computadora -->
+            <source src="c:\Users\danie\Downloads\YTDown.com_YouTube_Discurso-Albert-Camus-al-recibir-el-Prem_Media_YMF_1yWADIw_001_1080p.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+</body>
+</html>
